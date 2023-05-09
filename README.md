@@ -48,7 +48,7 @@ To install run:
 
 ```bash
 helm repo add hapifhir https://hapifhir.github.io/hapi-fhir-jpaserver-starter/
-helm install --render-subchart-notes hapi-fhir-jpaserver-ips hapifhir/hapi-fhir-jpaserver --values=charts/values.yaml
+helm install --render-subchart-notes hapi-fhir-jpaserver-ips hapifhir/hapi-fhir-jpaserver --values=charts/hapi-fhir-jpaserver/values.yaml
 ```
 The response should look like the following:
 
@@ -109,6 +109,10 @@ service/fhir-server-ips                         ClusterIP       10.233.2.38     
 service/hapi-fhir-jpaserver-ips-postgresql      ClusterIP      10.233.38.60            <none>                 5432/TCP             23d
 service/hapi-fhir-jpaserver-ips-postgresql-hl   ClusterIP              None            <none>                 5432/TCP             23d
 ```
+
+NOTE: Sometimes, the deployment builds incorrect liveness, readiness and startup endpoints, so the k8s cluster will always receive 404 from these endpoints, and service will never be ready. You can check this is happening if the pods are periodically restarting, or by running `kubectl describe pod POD_NAME`, wich will report a 404 status on liveness endpoint.
+
+If this is happening, edit manually the deployment `kubectl edit deployment` and delete the livenes, readiness and startup probes. 
 
 ### Istio VirtualService deployment
 

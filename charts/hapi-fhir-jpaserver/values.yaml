@@ -141,25 +141,25 @@ postgresql:
           - ALL
 
 readinessProbe:
-  failureThreshold: 5
-  initialDelaySeconds: 30
+  failureThreshold: 10
+  initialDelaySeconds: 300
   periodSeconds: 20
   successThreshold: 1
-  timeoutSeconds: 20
+  timeoutSeconds: 200
 
 startupProbe:
   failureThreshold: 10
-  initialDelaySeconds: 60
+  initialDelaySeconds: 600
   periodSeconds: 30
   successThreshold: 1
-  timeoutSeconds: 30
+  timeoutSeconds: 300
 
 livenessProbe:
-  failureThreshold: 5
-  initialDelaySeconds: 30
+  failureThreshold: 10
+  initialDelaySeconds: 300
   periodSeconds: 20
   successThreshold: 1
-  timeoutSeconds: 30
+  timeoutSeconds: 300
 
 externalDatabase:
   # -- external database host used with `postgresql.enabled=false`
