@@ -19,9 +19,9 @@ path: ips/api
 
 image:
   # -- registry where the HAPI FHIR server image is hosted
-  registry: gravitate-registry.cr.de-fra.ionos.com
+  registry: ghcr.io
   # -- the path inside the repository
-  repository: hapi-fhir-ips
+  repository: gravitate-health/hapi-fhir-ips
   # -- defaults to `Chart.appVersion`. As of v5.7.0, this is the `distroless` flavor
   tag: "0.0.7"
   # -- image pullPolicy to use

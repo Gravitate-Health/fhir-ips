@@ -35,7 +35,7 @@ Following the instructions in the [Helm Chart](https://github.com/hapifhir/hapi-
 | Variable                       | value       |
 |--------------------------------|-------------|
 |path| ips/api|
-|image.registry| gravitate-registry.cr.de-fra.ionos.com|
+|image.registry| ghcr.io|
 |image.repository| hapi-fhir-ips|
 |image.tag| "0.0.7"|
 |nameOverride| "fhir-server-ips"|
